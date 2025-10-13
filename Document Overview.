@@ -1,8 +1,4 @@
-Perfect 👍 Here’s a **ready-to-use Markdown section** you can paste directly into your **GitHub README.md** so visitors know what’s inside your `.docx` file without downloading it:
-
----
-
-## 📘 Document Overview — *01-Java Web Calculator-Build & Deploy.docx*
+📘 Document Overview — *01-Java Web Calculator-Build & Deploy.docx*
 
 This document provides a **complete step-by-step guide** for building and deploying a **Java Web Calculator** using **Maven** and **Apache Tomcat** on **two AWS EC2 servers** — one as a **Build Server** and another as a **Deploy Server**.
 
@@ -104,6 +100,3 @@ By following the steps in this document, you’ll successfully:
 ✅ Deploy it on Tomcat running on a separate EC2 instance
 ✅ Access the working **Java Web Calculator** via your browser
 
----
-
-Would you like me to add a short **intro paragraph and link section** at the top (for example, “Click here to view or download the full documentation” with a link to your `.docx` file on GitHub)?
