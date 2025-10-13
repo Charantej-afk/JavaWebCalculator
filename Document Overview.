@@ -1,0 +1,109 @@
+Perfect 👍 Here’s a **ready-to-use Markdown section** you can paste directly into your **GitHub README.md** so visitors know what’s inside your `.docx` file without downloading it:
+
+---
+
+## 📘 Document Overview — *01-Java Web Calculator-Build & Deploy.docx*
+
+This document provides a **complete step-by-step guide** for building and deploying a **Java Web Calculator** using **Maven** and **Apache Tomcat** on **two AWS EC2 servers** — one as a **Build Server** and another as a **Deploy Server**.
+
+---
+
+### 🧩 What’s Inside the Document
+
+#### 1️⃣ Overview
+
+A simple Java web application that performs basic arithmetic operations — **addition, subtraction, and multiplication**.
+It uses **Maven** for building and **Tomcat** for deployment in a **two-server architecture**.
+
+#### 2️⃣ Tech Stack
+
+* **Language:** Java (JDK 17)
+* **Build Tool:** Maven
+* **Server:** Apache Tomcat
+* **Cloud Platform:** AWS EC2 (Ubuntu 24.04 LTS)
+* **Architecture:**
+
+  ```
+  +----------------+           +----------------+
+  |  Build Server  |  ----->   |  Deploy Server |
+  | (Maven Build)  |           |   (Tomcat)     |
+  +----------------+           +----------------+
+  ```
+
+#### 3️⃣ Prerequisites
+
+* Java JDK 17 installed on both servers
+* Maven installed on the Build Server
+* Tomcat installed on the Deploy Server
+* Both servers should be in the same VPC for private file transfers (via SCP)
+
+#### 4️⃣ Server Setup
+
+* **Build Server:** EC2 instance (Ubuntu 24.04, t3.micro) with SSH access (port 22)
+* **Deploy Server:** EC2 instance (Ubuntu 24.04, t3.micro) with SSH (port 22) and Tomcat (port 8080) access
+
+#### 5️⃣ Software Installation
+
+* Install Java on both servers
+* Install **Maven** on the Build Server
+* Install **Tomcat** on the Deploy Server (via `wget` and extraction)
+
+#### 6️⃣ Build Process
+
+* Clone the Java Web Calculator repository
+* Validate and build the project using Maven commands:
+
+  ```bash
+  mvn validate
+  mvn package
+  ```
+* Fix version issues in `pom.xml` if needed
+* Locate the generated `.war` file inside the `target/` directory
+
+#### 7️⃣ Deployment Process
+
+* Start Tomcat using:
+
+  ```bash
+  ./startup.sh
+  ```
+* Configure access in:
+
+  * `context.xml` (remove restrictions)
+  * `tomcat-users.xml` (add user credentials)
+
+#### 8️⃣ WAR File Transfer
+
+* Copy the `.war` file from Build Server → Deploy Server using:
+
+  ```bash
+  scp -i ~/Deploy-Key.pem ~/JavaWebCalculator/target/*.war ubuntu@<Deploy-Server-Private-IP>:~/apache-tomcat-9.0.110/webapps/
+  ```
+* Restart Tomcat using:
+
+  ```bash
+  ./shutdown.sh
+  ./startup.sh
+  ```
+
+#### 9️⃣ Verification
+
+* Access the deployed web calculator using:
+
+  ```
+  http://<Deploy-Server-Public-IP>:8080/JavaWebCalculator
+  ```
+* The app should load successfully in your browser.
+
+---
+
+### 🏁 Final Outcome
+
+By following the steps in this document, you’ll successfully:
+✅ Build a Java web application using Maven
+✅ Deploy it on Tomcat running on a separate EC2 instance
+✅ Access the working **Java Web Calculator** via your browser
+
+---
+
+Would you like me to add a short **intro paragraph and link section** at the top (for example, “Click here to view or download the full documentation” with a link to your `.docx` file on GitHub)?
